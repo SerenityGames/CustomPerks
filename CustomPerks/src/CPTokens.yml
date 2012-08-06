@@ -1,0 +1,23 @@
+CPTokens:
+#Amount of tokens given per block if enabled.
+   Diamond:
+       Enabled: True
+       Tokens: 1
+       Block: On
+   Iron: 0
+       Enabled: False
+       Tokens: 1
+       Block: On
+   Gold: 0
+       Enabled: False
+       Tokens: 1
+       Block: On
+   Lapis: 0
+       Enabled: False
+       Tokens: 1
+       Block: On
+   Emerald: 0
+       Enabled: False
+       Tokens: 1
+       Block: On
+   

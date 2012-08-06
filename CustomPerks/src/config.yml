@@ -5,9 +5,11 @@ Perks:
 -
 -
 CedSlap:
+#Use Items:
+#Diamond, Iron, Gold, Lapis, Emerald 
     Perm: cedslap.use
     CanPurchase: Allow
-        Cost: 5
+        TokenCost: 5
         Item: DIAMOND_BLOCK
     Permanent: Deny
         Hours: 48
