@@ -15,7 +15,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class CustomPerks extends JavaPlugin{
 	
 	File configFile;
+	File cptokensFile;
 	FileConfiguration config;
+	FileConfiguration cptokens;
 	String userdata;
 	
 	Logger log = Logger.getLogger("Minecraft");
@@ -24,6 +26,8 @@ public class CustomPerks extends JavaPlugin{
 		
 		userdata = (getDataFolder() + "\\UserData");
 		configFile = new File (getDataFolder(), "config.yml");
+		cptokensFile = new File (getDataFolder(), "CPTokens.yml");
+		new File(userdata).mkdir();
 		try {
 			firstRun();
 		} catch (Exception e){
@@ -43,9 +47,12 @@ public class CustomPerks extends JavaPlugin{
 		if (!configFile.exists()){
 			configFile.getParentFile().mkdirs();
 			copy(getResource ("config.yml"), configFile);
-			new File(userdata).mkdir();
 		}
-		
+		if (!cptokensFile.exists()){
+			cptokensFile.getParentFile().mkdirs();
+			copy(getResource ("CPTokens.yml"), configFile);
+			
+		}
 	}
 	
 	private void copy(InputStream in, File file){
@@ -65,6 +72,7 @@ public class CustomPerks extends JavaPlugin{
 	public void loadYamls() {
         try {
             config.load(configFile);
+            cptokens.load(cptokensFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -73,6 +81,7 @@ public class CustomPerks extends JavaPlugin{
 	public void saveYamls() {
         try {
             config.save(configFile);
+            cptokens.save(cptokensFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
