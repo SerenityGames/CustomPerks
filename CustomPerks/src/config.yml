@@ -1,12 +1,18 @@
 #Put perk name in perks, if you need more room just add more -
 #Copy the format for cedslap for each of your perks
 Perks:
+#- Example 
 - CedSlap
 -
 -
+#Example:
+    #Perm: example.use
+    #CanPurchase: Allow
+        #TokenCost: 5
+        #Item: DIAMOND_BLOCK
+    #Permanent: Deny
+        #Hours: 48
 CedSlap:
-#Use Items:
-#Diamond, Iron, Gold, Lapis, Emerald 
     Perm: cedslap.use
     CanPurchase: Allow
         TokenCost: 5
