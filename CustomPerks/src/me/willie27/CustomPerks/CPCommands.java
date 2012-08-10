@@ -8,30 +8,43 @@ public class CPCommands implements CommandExecutor{
 	
 	public boolean onCommand(CommandSender sender, Command cmd,String commandLabel, String[] args){
 		
-		if (args.length > 0){
+		if (cmd.getName().equalsIgnoreCase("perk")){
 			
-			//List available perks.
-			if(cmd.getName().equalsIgnoreCase("list")){
+			if (args.length > 1){
 				
+				if (args[1].equalsIgnoreCase("list")){
+					sender.sendMessage("The current perks that are available on this server are:");
+					sender.sendMessage(CustomPerks.perklist);
+				}
 				
-			}
-			
-			//Buy Perks.
-			if(cmd.getName().equalsIgnoreCase("buy")){
+				if (args[1].equalsIgnoreCase("tokens")){
+					
+				}
 				
-			}
-			
-			//Sell available items for tokens.
-			if(cmd.getName().equalsIgnoreCase("sell")){
+				if (args[1].equalsIgnoreCase("give")){
+					
+				}
 				
-			}
-			
-			//Lists amount of tokens the player has.
-			if (cmd.getName().equalsIgnoreCase("tokens")){
+				if (args[1].equalsIgnoreCase("remove")){
+					
+				}
+				
+				if (args[1].equalsIgnoreCase("buy")){
+					
+				}
+				
+				if (args[1].equalsIgnoreCase("sell")){
+					
+				}
+				
+				if (args[1].equalsIgnoreCase("pay")){
+					
+				}
 				
 			}
 			
 		}
+		
 		return false;
 	}
 

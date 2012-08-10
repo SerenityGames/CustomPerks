@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -21,13 +20,13 @@ public class CustomPerks extends JavaPlugin{
 	FileConfiguration cptokens;
 	String userdata;
 	
-	public static List<String> perklist;
+	public static String perklist;
 	
 	Logger log = Logger.getLogger("Minecraft");
 	
 	public void onEnable(){
 		
-		userdata = (getDataFolder() + "\\UserData");
+		userdata = (getDataFolder() + File.separator + "UserData");
 		configFile = new File (getDataFolder(), "config.yml");
 		cptokensFile = new File (getDataFolder(), "CPTokens.yml");
 		new File(userdata).mkdir();
@@ -42,7 +41,7 @@ public class CustomPerks extends JavaPlugin{
 		
 		log.info("[CustomPerks] has been enabled!");
 		
-		perklist = getConfig().getStringList("Perks");
+		perklist = getConfig().getString("Perks");
 		getCommand("CP").setExecutor(new CPCommands());
 	}
 	
