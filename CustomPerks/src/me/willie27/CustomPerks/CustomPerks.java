@@ -21,6 +21,21 @@ public class CustomPerks extends JavaPlugin{
 	String userdata;
 	
 	public static String perklist;
+	public static boolean Denabled;
+	public static int Dvalue;
+	public static boolean Dblock;
+	public static boolean Ienabled;
+	public static int Ivalue;
+	public static boolean Iblock;
+	public static boolean Genabled;
+	public static int Gvalue;
+	public static boolean Gblock;
+	public static boolean Lenabled;
+	public static int Lvalue;
+	public static boolean Lblock;
+	public static boolean Eenabled;
+	public static int Evalue;
+	public static boolean Eblock;
 	
 	Logger log = Logger.getLogger("Minecraft");
 	
@@ -29,7 +44,7 @@ public class CustomPerks extends JavaPlugin{
 		userdata = (getDataFolder() + File.separator + "UserData");
 		configFile = new File (getDataFolder(), "config.yml");
 		cptokensFile = new File (getDataFolder(), "CPTokens.yml");
-		new File(userdata).mkdir();
+		new File("PlayerData").mkdir();
 		
 		try {
 			firstRun();
@@ -42,6 +57,46 @@ public class CustomPerks extends JavaPlugin{
 		log.info("[CustomPerks] has been enabled!");
 		
 		perklist = getConfig().getString("Perks");
+		
+		Denabled = getConfig().getBoolean("Diamond.Enabled");
+		Dvalue = getConfig().getInt("Diamond.Tokens");
+		if (getConfig().getString("Diamond.Block").equalsIgnoreCase("on")){
+			Dblock = true;
+		}else{
+			Dblock = false;
+		}
+		
+		Ienabled = getConfig().getBoolean("Iron.Enabled");
+		Ivalue = getConfig().getInt("Iron.Tokens");
+		if (getConfig().getString("Iron.Block").equalsIgnoreCase("on")){
+			Iblock = true;
+		}else{
+			Iblock = false;
+		}
+		
+		Genabled = getConfig().getBoolean("Gold.Enabled");
+		Gvalue = getConfig().getInt("Gold.Tokens");
+		if (getConfig().getString("Gold.Block").equalsIgnoreCase("on")){
+			Gblock = true;
+		}else{
+			Gblock = false;
+		}
+		
+		Lenabled = getConfig().getBoolean("Lapis.Enabled");
+		Lvalue = getConfig().getInt("Lapis.Tokens");
+		if (getConfig().getString("Lapis.Block").equalsIgnoreCase("on")){
+			Lblock = true;
+		}else{
+			Lblock = false;
+		}
+		
+		Eenabled = getConfig().getBoolean("Emerald.Enabled");
+		Evalue = getConfig().getInt("Emerald.Tokens");
+		if (getConfig().getString("Emerald.Block").equalsIgnoreCase("on")){
+			Eblock = true;
+		}else{
+			Eblock = false;
+		}
 		getCommand("CP").setExecutor(new CPCommands());
 	}
 	

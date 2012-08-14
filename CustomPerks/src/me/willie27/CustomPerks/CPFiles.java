@@ -51,24 +51,18 @@ public class CPFiles {
 		in.close();
 	}
 	
-	public static void wrfile(String playername, String perk, int cost, String time) throws Exception{
+	public static void wrfile(String playername, int tokens, String perk, String time) throws Exception{
 		File loc = new File ("CustomPerks" + File.separator + "PlayerData" + File.separator + playername + ".txt");
 		
 		if (!loc.exists()){
 			mkfile(playername);
 		}
 		
-		rdfile(playername);
-		
-		int tokens = Tokens - cost;
-		String perks = Perks + ":" + perk;
-		String times = Time + ":" + time;
-		
 		FileWriter out = new FileWriter(loc);
 		
 		out.write("Tokens: " + tokens + System.getProperty("line.separator"));
-		out.write("Perks: " + perks + System.getProperty("line.separator"));
-		out.write("Time: " + times + System.getProperty("line.separator"));
+		out.write("Perks: " + perk + System.getProperty("line.separator"));
+		out.write("Time: " + time + System.getProperty("line.separator"));
 		
 		out.close();
 		

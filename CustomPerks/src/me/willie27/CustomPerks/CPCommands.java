@@ -10,34 +10,95 @@ public class CPCommands implements CommandExecutor{
 		
 		if (cmd.getName().equalsIgnoreCase("perk")){
 			
-			if (args.length > 1){
+			if (args.length > 0){
 				
-				if (args[1].equalsIgnoreCase("list")){
+				if (args[0].equalsIgnoreCase("list")){
 					sender.sendMessage("The current perks that are available on this server are:");
 					sender.sendMessage(CustomPerks.perklist);
 				}
 				
-				if (args[1].equalsIgnoreCase("tokens")){
+				if (args[0].equalsIgnoreCase("tokens")){
+					
+					try {
+						CPFiles.rdfile(sender.getName());
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					sender.sendMessage("You currently have " + CPFiles.Tokens + " tokens!");
+				}
+				
+				if (args[0].equalsIgnoreCase("give")){
+					
+					if (sender.hasPermission("customperks.give")){
+						if (args.length > 1){
+						
+							String playername = args[1];
+						
+							if (args.length > 2){
+							
+								int amount = Integer.parseInt(args[2]);
+							
+								try {
+									CPFiles.rdfile(playername);
+								} catch (Exception e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							
+								int tokens = CPFiles.Tokens + amount;
+							
+								try {
+									CPFiles.wrfile(playername, tokens, CPFiles.Perks , CPFiles.Time);
+								} catch (Exception e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							
+								sender.sendMessage("Gave " + playername + " " + tokens + " tokens!");
+							}
+						}
+					}else{
+						
+						sender.sendMessage("You do not have permission to use that command!");
+						
+					}
+				}
+				
+				if (args[0].equalsIgnoreCase("remove")){
 					
 				}
 				
-				if (args[1].equalsIgnoreCase("give")){
+				if (args[0].equalsIgnoreCase("buy")){
+					
+					if (sender.hasPermission("customperks.perk.buy")){
+						
+						if (args.length > 1){
+							
+							String perk = args[1];
+							
+							if (CustomPerks.perklist.contains(perk)){
+								
+								
+								
+							}else{
+								
+								sender.sendMessage(perk + " Is not a perk!");
+								
+							}
+							
+						}
+						
+					}
 					
 				}
 				
-				if (args[1].equalsIgnoreCase("remove")){
+				if (args[0].equalsIgnoreCase("sell")){
 					
 				}
 				
-				if (args[1].equalsIgnoreCase("buy")){
-					
-				}
-				
-				if (args[1].equalsIgnoreCase("sell")){
-					
-				}
-				
-				if (args[1].equalsIgnoreCase("pay")){
+				if (args[0].equalsIgnoreCase("pay")){
 					
 				}
 				

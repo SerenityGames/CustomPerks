@@ -1,0 +1,7 @@
+CedSlap:
+    Perm: cedslap.use
+    CanPurchase: true
+        TokenCost: 5
+        Item: DIAMOND_BLOCK
+    Permanent: false
+        Hours: 48

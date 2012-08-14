@@ -7,15 +7,15 @@ Perks:
 -
 #Example:
     #Perm: example.use
-    #CanPurchase: Allow
+    #CanPurchase: true
         #TokenCost: 5
         #Item: DIAMOND_BLOCK
-    #Permanent: Deny
+    #Permanent: false
         #Hours: 48
 CedSlap:
     Perm: cedslap.use
-    CanPurchase: Allow
+    CanPurchase: true
         TokenCost: 5
         Item: DIAMOND_BLOCK
-    Permanent: Deny
+    Permanent: false
         Hours: 48
